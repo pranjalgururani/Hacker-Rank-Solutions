@@ -1,0 +1,52 @@
+//     Author: Pranjal Gururani
+//     Github: github.com/github.com/pranjalgururani
+//     HackerRank: hackerrank.com/pranjalgururani
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    static String super_reduced_string(String s){
+     
+        
+      Stack<Character> st = new Stack<>();
+       int n = s.length();
+        int counter =0;
+        for(int i =0; i<n; i++){
+            if(st.isEmpty()){
+                st.push(s.charAt(i));
+                counter++;
+            }
+            else{
+                if(st.peek() == s.charAt(i)){
+                    st.pop();
+                    counter--;
+                }
+                else{
+                    st.push(s.charAt(i));
+                    counter++;
+                }
+            }
+        }
+         
+       if(counter >0){ 
+        char[] values = new char[counter];
+        for(int i = counter-1; i>=0; i--){
+            values[i]= st.pop();
+        }
+        
+        return String.valueOf(values);
+       }
+    
+        return "Empty String";
+        
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.next();
+        String result = super_reduced_string(s);
+        System.out.println(result);
+    }
+}
