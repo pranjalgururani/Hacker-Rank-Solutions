@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int hackerlandRadioTransmitters(int[] x, int k) {
+        int n = x.length;
+        int count =0;
+        Arrays.sort(x);
+        
+        for(int i =n-1; i>=0;i-- ){
+            int range = x[i]-k;
+            i--;
+            while(i>=0 && range<=x[i]){
+                i--;
+            }
+            i++;
+            
+            if(i<0)
+                break;
+            count++;
+            range = x[i]-k;
+            i--;
+            while(i>=0 && range<=x[i]){
+                i--;
+            }
+            i++;
+            
+        }
+        
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int k = in.nextInt();
+        int[] x = new int[n];
+        for(int x_i = 0; x_i < n; x_i++){
+            x[x_i] = in.nextInt();
+        }
+        int result = hackerlandRadioTransmitters(x, k);
+        System.out.println(result);
+        in.close();
+    }
+}
