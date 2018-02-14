@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int makingAnagrams(string s1, string s2){
+   int arr[26]= {0};
+
+    for(int i =0; i<s1.length(); i++)
+    arr[s1[i]-97]++;
+    
+    for(int i =0; i<s2.length(); i++){
+        arr[s2[i]-97]--;
+    }
+    
+    int count =0;
+    for(int i =0; i<26; i++)
+        count += abs(arr[i]);
+    
+    return count;
+}
+
+int main() {
+    string s1;
+    cin >> s1;
+    string s2;
+    cin >> s2;
+    int result = makingAnagrams(s1, s2);
+    cout << result << endl;
+    return 0;
+}
