@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string gameOfThrones(string s){
+    int arr[26] = {0};
+    
+    for(int i =0; i<s.length(); i++)
+        arr[s[i]-97]++;
+    
+    int count = 0;
+    for(int i=0; i<26; i++){
+        if(arr[i]%2!=0)
+        { 
+          count++;
+          if(count>1)
+              return "NO";
+        }
+    }
+    return "YES";
+}
+
+int main() {
+    string s;
+    cin >> s;
+    string result = gameOfThrones(s);
+    cout << result << endl;
+    return 0;
+}
