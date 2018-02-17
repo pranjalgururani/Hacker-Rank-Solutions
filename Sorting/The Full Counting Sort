@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    
+    
+    string s[100];
+    int number;
+    string k;
+    for(int a0 = 0; a0 < n; a0++){
+      cin >>number;
+      cin>>k;
+      if(a0<n/2)
+      { 
+      s[number]=s[number] + '-' + " ";      
+      } 
+     else
+        s[number] = s[number]+ k + " "; 
+    }
+    
+    for(int i=0; i<100; i++){
+        cout<<s[i];
+    }
+    
+    
+    return 0;
+}
